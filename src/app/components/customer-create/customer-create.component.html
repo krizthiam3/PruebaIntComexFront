@@ -1,0 +1,63 @@
+<h3>Create customer</h3>
+<div [hidden]="submitted" style="width: 400px;">
+   <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+   <div class="form-group">
+      <label for="name">Usuario</label>
+      <input type="text" class="form-control"         
+      formControlName="usuario"
+      id="usuario"  [(ngModel)]="customer.usuario" name="usuario">
+      <div *ngIf="f['usuario']?.touched && f['usuario'].invalid" class="alert alert-danger">
+         <div *ngIf="f['usuario'].errors && f['usuario'].errors['required']">* Este campo es requerido.</div>
+         <div *ngIf="f['usuario'].errors && f['usuario'].errors['minlength']">* Cantidad minima 3 Caracteres.</div>
+      </div>
+   </div>
+   <div class="form-group">
+      <label for="name">Name</label>
+      <input 
+      formControlName="nombreCompleto"
+      id="nombreCompleto" 
+      type="text" 
+      [(ngModel)]="customer.nombreCompleto"
+      class="form-control">
+      <div *ngIf="f['nombreCompleto']?.touched && f['nombreCompleto'].invalid" class="alert alert-danger">
+         <div *ngIf="f['nombreCompleto'].errors && f['nombreCompleto'].errors['required']">* Este campo es requerido.</div>
+         <div *ngIf="f['nombreCompleto'].errors && f['nombreCompleto'].errors['minlength']">* Cantidad minima 3 Caracteres.</div>
+      </div>
+   </div>
+   <div class="form-group">
+      <label for="name">Cargo</label>
+      <input type="text" class="form-control" id="cargo"            formControlName="cargo"
+      [(ngModel)]="customer.cargo" name="cargo">
+      <div *ngIf="f['cargo']?.touched && f['cargo'].invalid" class="alert alert-danger">
+         <div *ngIf="f['cargo'].errors && f['cargo'].errors['required']">* Este campo es requerido.</div>
+         <div *ngIf="f['cargo'].errors && f['cargo'].errors['minlength']">* Cantidad minima 3 Caracteres.</div>
+      </div>
+   </div>
+   <div class="form-group">
+      <label for="name">Email</label>
+      <input type="text" class="form-control" id="email"            formControlName="email"
+      [(ngModel)]="customer.email" name="email">
+      <div *ngIf="f['email']?.touched && f['email'].invalid" class="alert alert-danger">
+         <div *ngIf="f['email'].errors && f['email'].errors['required']">* Este campo es requerido.</div>
+         <div *ngIf="f['email'].errors && f['email'].errors['minlength']">* Cantidad minima 3 Caracteres.</div>
+      </div>
+   </div>
+   <div class="form-group">
+      <label>Tipo Contacto:</label>  
+      <select  name="codTipoContacto"   id="codTipoContacto"    formControlName="codTipoContacto"
+      class="form-control" [(ngModel)]="selectedCountry">  
+      <option value="undefined"> -- Seleccione un opcion -- </option>
+      <option *ngFor="let contacto of contactos"  
+      [ngValue]="contacto.id">  
+      {{contacto.nombre}}  
+      </option>  
+      </select>  
+      <div *ngIf="f['codTipoContacto']?.touched && f['codTipoContacto'].invalid" class="alert alert-danger">
+         <div *ngIf="f['codTipoContacto'].errors && f['codTipoContacto'].errors['required']">* Este campo es requerido.</div>
+         <div *ngIf="f['codTipoContacto'].errors && f['codTipoContacto'].errors['minlength']">* Cantidad minima 3 Caracteres</div>
+      </div>
+   </div>
+   <br>
+   <button class="btn btn-primary" [disabled]="myForm.invalid" type="submit">Submit</button>
+   </form>
+</div>

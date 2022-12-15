@@ -1,0 +1,35 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Lista Clientes</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Usuario</th>
+            <th>Nombre Completo</th>
+            <th>Cargo</th>
+            <th>Email</th>
+            <th>Tipo Contacto</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customers; let i = index" >
+            <td>{{customer.id}}</td>
+            <td>{{customer.usuario}}</td>
+            <td>{{customer.nombreCompleto}}</td>
+            <td>{{customer.cargo}}</td>
+            <td>{{customer.email}}</td>
+            <td>{{customer.codTipoContacto}}</td>
+            <td>
+                <button (click)="customerDetails(customer.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+ 

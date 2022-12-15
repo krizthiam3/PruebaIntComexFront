@@ -1,0 +1,23 @@
+<h2>Cleinte Detalle</h2> 
+
+<hr/>
+<div *ngIf="customer">
+  <div>
+    <label><b>Usuario: </b></label> {{customer.usuario}}
+  </div>
+  <div>
+    <label><b>Nombre Completo: </b></label> {{customer.nombreCompleto}}
+  </div>
+  <div>
+    <label><b>Cargo: </b></label> {{customer.cargo}}
+  </div>  
+  <div>
+    <label><b>Email: </b></label> {{customer.email}}
+  </div>
+  <div>
+    <label><b>Tipo Contacto: </b></label> {{customer.codTipoContacto}}
+  </div>
+</div>
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Ver Listado</button><br>
